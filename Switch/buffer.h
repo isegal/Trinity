@@ -7,6 +7,7 @@
 #include <sys/time.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <errno.h>
 #include "switch_compiler_aux.h"
 
 class Buffer
@@ -842,7 +843,11 @@ class Buffer
 
         Buffer(const uint32_t initSize);
 
-        Buffer(const char *const p, const uint32_t l);
+        Buffer(const char *const p, const uint32_t l)
+        : Buffer()
+        {
+                Append(p, l);
+        }
 
         Buffer(const strwlen32_t content)
             : Buffer(content.p, content.len)

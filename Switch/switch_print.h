@@ -223,22 +223,11 @@ static void PrintImpl(Buffer &b, const std::pair<A, B> &pair)
 	b.Append('>');
 }
 
-
-
 template<typename T>
-static void PrintImpl(Buffer &b, const T &v)
+typename std::enable_if<std::is_enum<T>::value, void>::type
+PrintImpl(Buffer &b, const T &v)
 {
-	if (std::is_enum<T>::value)
-	{
-		// We can now use 'naked' enums and they will be printed properly
-		PrintImpl(b, (typename std::underlying_type<T>::type)v);
-	}
-	else
-        {
-		// catch-all for when we have no PrintImpl() specialization
-                fprintf(stderr, "Specialization for type not defined\n");
-		std::abort();
-        }
+	PrintImpl(static_cast<typename std::underlying_type<T>::type>(v));
 }
 
 

@@ -11,3 +11,9 @@
 #define readdir64_r readdir_r
 #define readdir64 readdir
 #endif
+
+#ifdef __APPLE__
+#define O_LARGEFILE 0
+#define lseek64 lseek
+#define MADV_DONTDUMP MADV_NORMAL
+#endif

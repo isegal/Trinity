@@ -1,4 +1,5 @@
 #include "docwordspace.h"
+#include <vector>
 
 bool Trinity::DocWordsSpace::test_phrase(const std::vector<exec_term_id_t> &phraseTerms, const tokenpos_t *phraseFirstTokenPositions, const tokenpos_t phraseFirstTokenPositionsCnt) const
 {

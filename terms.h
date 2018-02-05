@@ -2,6 +2,7 @@
 #include "codecs.h"
 #include <compress.h>
 #include <switch_mallocators.h>
+#include <vector>
 
 // Prefic compressed terms dictionary
 // Maps from str8_t=>term_index_ctx

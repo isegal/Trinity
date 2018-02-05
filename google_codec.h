@@ -4,6 +4,9 @@
 #pragma once
 #include "codecs.h"
 
+#include <vector>
+#include <utility>
+
 #define TRINITY_CODECS_GOOGLE_AVAILABLE 1
 
 static_assert(sizeof(Trinity::isrc_docid_t) <= sizeof(uint32_t));

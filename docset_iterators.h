@@ -3,6 +3,7 @@
 // in their constructors. Doing so would cause all kinds of issues with Docsets Spans.
 #pragma once
 #include "docset_iterators_base.h"
+#include <vector>
 #include <prioqueue.h>
 
 #ifdef __clang__

@@ -6,6 +6,10 @@
 #include <limits>
 #include <memory>
 #include <utility>
+#include <string.h>
+
+#include "switch_compiler_aux.h"
+
 #ifdef HAVE_ICU
 #include <unicode/normalizer2.h>
 #include <unicode/stringpiece.h>

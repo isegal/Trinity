@@ -174,3 +174,24 @@ static inline unsigned short bswap16(unsigned short x) { return __builtin_bswap3
                         _op_ += 8;                                           \
                 }                                                            \
         }
+
+#ifdef __APPLE__
+#include <malloc/malloc.h>
+
+inline size_t malloc_usable_size(void* p)     { return malloc_size(p); }
+
+inline void * memrchr(const void *s, int c, size_t n)
+{
+        const unsigned char *cp;
+
+        if (n != 0) {
+                cp = (unsigned char *)s + n;
+                do {
+                        if (*(--cp) == (unsigned char)c)
+                                return (void *)cp;
+                } while (--n != 0);
+        }
+        return (void *)0;
+}
+
+#endif
